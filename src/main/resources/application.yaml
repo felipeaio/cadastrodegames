@@ -1,0 +1,14 @@
+server:
+ port: 8081
+spring:
+ datasource:
+  url: jdbc:postgresql://localhost:5432/cadastrodegames?serverTimeZone=ADT
+  username: postgres
+  password: postdba
+ jpa:
+  hibernate:
+   ddl-auto: update
+  show-sql: true
+ mvc:
+  pathmatch:
+   matching-strategy: ant-path-matcher

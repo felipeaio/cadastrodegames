@@ -17,13 +17,13 @@ public class GamesController {
     @Autowired
     private GamesService service;
 
-    @PostMapping (produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = {"application/json", "application/xml"})
+    @PostMapping (produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = {"application/json", "application/xml"} )
     public GamesModel save(@RequestBody GamesModel game){
         return service.save(game);
 
     }
 
-    @GetMapping (value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE } )
+    @GetMapping (value = "/{id}", produces = { "application/json", "application/xml", "application/x-yaml", MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE } )
     public Optional<GamesModel> findById(@PathVariable("id") long id) {
         return service.findById(id);
     }

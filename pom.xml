@@ -74,6 +74,12 @@
 			<artifactId>jackson-dataformat-yaml</artifactId>
 		</dependency>
 
+		<!-- HATEOAS support -->
+		<dependency>
+			<groupId>org.springframework.hateoas</groupId>
+			<artifactId>spring-hateoas</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

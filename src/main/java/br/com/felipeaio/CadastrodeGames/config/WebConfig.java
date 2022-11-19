@@ -25,6 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer){
         configurer.favorParameter(true)
                 .ignoreAcceptHeader(false) //.. remove parameterName method and don't ignore Accept Header
+                .parameterName("mediaType") //..query parameter name
                 .useRegisteredExtensionsOnly(false)
                 .defaultContentType(MediaType.APPLICATION_JSON)
                 .mediaType("xml", MediaType.APPLICATION_XML)

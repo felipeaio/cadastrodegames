@@ -68,6 +68,12 @@
 			<artifactId>jackson-dataformat-yaml</artifactId>
 		</dependency>
 
+		<!-- Content Negotiation YAML Support -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

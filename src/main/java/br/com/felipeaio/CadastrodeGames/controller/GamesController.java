@@ -17,7 +17,7 @@ public class GamesController {
     @Autowired
     private GamesService service;
 
-    @PostMapping (produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = {"application/json", "application/xml"} )
+    @PostMapping (produces = { "application/xml", "application/json", "application/x-yaml", MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = {"application/xml", "application/json", "application/x-yaml"} )
     public GamesModel save(@RequestBody GamesModel game){
         return service.save(game);
 
@@ -33,7 +33,7 @@ public class GamesController {
         return service.findAll();
     }
 
-    @PutMapping (produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = {"application/json", "application/xml"})
+    @PutMapping (produces = { "application/xml", "application/json", "application/x-yaml", MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = {"application/xml", "application/json", "application/x-yaml", "application/json", "application/xml"})
     public GamesModel update(@RequestBody GamesModel game){
         return service.update(game);
     }

@@ -1,8 +1,10 @@
 package br.com.felipeaio.CadastrodeGames.controller;
 
+import br.com.felipeaio.CadastrodeGames.model.CategoryModel;
 import br.com.felipeaio.CadastrodeGames.model.GamesModel;
 import br.com.felipeaio.CadastrodeGames.service.GamesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -7,6 +7,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import java.util.List;
 
@@ -17,12 +18,12 @@ public class WebConfig implements WebMvcConfigurer {
     private static final MediaType MEDIA_TYPE_YAML = MediaType.valueOf("application/x-yaml");
 
     //..add a interceptor
-    public void extendMessageConverters(List<HttpMessageConverter<?>> converters){
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(new YamlJackson2HttpMessageConverter());
     }
 
     @Override
-    public void configureContentNegotiation(ContentNegotiationConfigurer configurer){
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
         configurer.favorParameter(true)
                 .ignoreAcceptHeader(false) //.. remove parameterName method and don't ignore Accept Header
                 .parameterName("mediaType") //..query parameter name
@@ -31,5 +32,11 @@ public class WebConfig implements WebMvcConfigurer {
                 .mediaType("xml", MediaType.APPLICATION_XML)
                 .mediaType("json", MediaType.APPLICATION_JSON)
                 .mediaType("x-yaml", MEDIA_TYPE_YAML); //..adding YAML support
+    }
+
+    //    CORS
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowCredentials(false).allowedMethods("*");
     }
 }
